@@ -1,0 +1,13 @@
+.icon {
+    border-radius: 50%;
+    border: 2px solid red;
+    padding: 5px;
+    font-size: 30px;
+}
+
+.inputt {
+    border: 0;
+    outline: 0;
+    background: transparent;
+    border-bottom: 1px solid black;
+  }
