@@ -157,7 +157,6 @@ const Streaming = () => {
                                                                     volume
                                                                     width={400}
                                                                     height={400}
-                                                                    
                                                                 />
                                                             </SwiperSlide>
                                                         </div>
