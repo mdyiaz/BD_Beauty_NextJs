@@ -5,17 +5,20 @@ import { useState } from 'react';
 import { BsFillCartPlusFill } from 'react-icons/bs';
 import { AiOutlineHeart } from 'react-icons/ai';
 import { MdOutlineArrowDropDown } from 'react-icons/md';
+import {BiSearch} from 'react-icons/bi';
 
 
 import style from './navbar.module.css';
 import TopNavbar from '@/components/TopNavbar/TopNavbar';
 import NavSearchBar from '@/components/NavSearchBar/NavSearchBar';
+import ModalForNavSearch from '@/components/NavSearchBar/modalForNavSearch';
 
 const Navbar = () => {
 
     const [isOpen, setIsOpen] = useState(false);
+    const [showModal, setShowModal] = useState(false);
     return (
-        <div className={`sticky top-0 ${style.zindex} bg-white`}>
+        <div className={`sticky top-0 ${style.zindex} bg-white shadow-md`}>
             <TopNavbar></TopNavbar>
             <NavSearchBar></NavSearchBar>
 
@@ -149,6 +152,20 @@ const Navbar = () => {
 
                 </div>
             </nav>
+
+
+            <div className="relative lg:hidden mx-2 my-2"  onMouseEnter={() => setShowModal(true)}>
+                <input type="text" placeholder="search for products" className="input input-bordered w-full " />
+                <button className="btn btn-secondary  absolute top-0 right-0 rounded-l-none"><BiSearch/></button>
+            </div>
+
+            { showModal && 
+                <ModalForNavSearch
+                showModal={showModal}
+                setShowModal={setShowModal}>
+
+            </ModalForNavSearch>
+            }
         </div>
     );
 };

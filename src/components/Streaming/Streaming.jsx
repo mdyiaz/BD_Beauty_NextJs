@@ -9,7 +9,6 @@ import "swiper/css/navigation";
 // import "swiper/css/effect-coverflow";
 
 
-
 // import required modules
 import { Pagination, Navigation } from "swiper";
 import ReactPlayer from "react-player";
@@ -30,7 +29,6 @@ const Streaming = () => {
         }
     };
     fetchData();
-
 
     return (
         <div className='mt-10'>
@@ -76,8 +74,6 @@ const Streaming = () => {
                     }}
                 >
 
-
-
                     {
                         streamingVideos.map((streamingVideo => (
                             <div key={streamingVideo._id}>
@@ -96,14 +92,7 @@ const Streaming = () => {
 
                 </Swiper>
 
-
-
-
-
-
-
-
-                {/* MODAL SECTION START_______________________________________________________________ */}
+                {/* MODAL SECTION START_______________________ */}
                 {
                     showModal &&
                     <ModalForStreaming
@@ -113,10 +102,8 @@ const Streaming = () => {
 
                     </ModalForStreaming>
                 }
-                {/* MODAL SECTION END___________________________________________________________________ */}
+                {/* MODAL SECTION END_______________________ */}
             </div>
-
-
 
         </div>
     );
