@@ -58,7 +58,7 @@ const Streaming = () => {
 
                         520: {
 
-                            slidesPerView: 1,
+                            slidesPerView: 2,
                         },
 
 
@@ -80,7 +80,7 @@ const Streaming = () => {
                                 <SwiperSlide onClick={() => setShowModal(true)}>
                                     <ReactPlayer
                                         url={streamingVideo.video}
-                                        controls
+
                                         volume
                                         width={300}
                                         height={500}
@@ -96,7 +96,7 @@ const Streaming = () => {
                 {
                     showModal &&
                     <ModalForStreaming
-                        showModal={showModal} 
+                        showModal={showModal}
                         setShowModal={setShowModal}
                     >
 

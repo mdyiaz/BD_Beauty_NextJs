@@ -10,21 +10,33 @@ import "swiper/css/pagination";
 // import required modules
 import { Pagination, Autoplay } from "swiper";
 
-const Banner = () => {
+const getData = async () => {
+    const res = await fetch('https://web.bdbeautyglamorous.com/web-api/home-page-content');
+    const data = await res.json();
+    return data;
+}
+
+const Banner = async () => {
+    const banners = await getData();
+    console.log(banners.data[0].sliders);
     return (
         <div>
-            <Swiper 
+            <Swiper
                 autoplay={{
-                delay: 2500,
-                disableOnInteraction: false,}}
+                    delay: 2500,
+                    disableOnInteraction: false,
+                }}
                 pagination={true}
                 modules={[Pagination, Autoplay]}
                 className="mySwiper"
-                >
-                <SwiperSlide><img src="https://web.bdbeautyglamorous.com/uploads/slider/16761182350IWCFOSS1P4318.jpg" alt="" className="w-full lg:h-96 h-52 " /></SwiperSlide>
-                <SwiperSlide><img src="https://web.bdbeautyglamorous.com/uploads/slider/1676116039ofhrwNjkyT6070.jpg" alt="" className="w-full lg:h-96 h-52 " /></SwiperSlide>
-                <SwiperSlide><img src="https://web.bdbeautyglamorous.com/uploads/slider/16761181410lQ0HVuYGw3813.jpg" alt="" className="w-full lg:h-96 h-52 "/></SwiperSlide>
-                <SwiperSlide><img src="https://web.bdbeautyglamorous.com/uploads/slider/1676115897gi1lQVxZD96606.jpg" alt="" className="w-full lg:h-96 h-52 " /></SwiperSlide>
+            >
+                {
+                    banners.data[0].sliders.map((banner => (
+                        <SwiperSlide>
+                            <img src={banner.image_path} alt="" className="w-full lg:h-96 h-52 " />
+                        </SwiperSlide>
+                    )))
+                }
             </Swiper>
         </div>
     );
